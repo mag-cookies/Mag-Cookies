@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MAG COOKIES — Premium handmade cookies made with love.">
+<title>MAG COOKIES | Premium Cookies</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:#f8f3eb;
+  --cream-dark:#eee3d3;
+  --brown:#3c241b;
+  --gold:#bd9659;
+  --white:#fffdf9;
+  --muted:#806f63;
+  --shadow:0 14px 40px rgba(60,36,27,.10);
+}
+
+* {box-sizing:border-box;}
+html {scroll-behavior:smooth;}
+body {
+  margin:0;
+  color:var(--brown);
+  background:var(--cream);
+  font-family:"DM Sans",sans-serif;
+}
+a {color:inherit;text-decoration:none;}
+button {font:inherit;cursor:pointer;}
+
+.topbar {
+  padding:10px 16px;
+  text-align:center;
+  color:var(--cream);
+  background:var(--brown);
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+header {
+  position:sticky;
+  top:0;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:18px 7%;
+  background:rgba(248,243,235,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(60,36,27,.08);
+}
+
+.logo {
+  font-family:"Playfair Display",serif;
+  font-weight:800;
+  font-size:25px;
+  letter-spacing:1px;
+  white-space:nowrap;
+}
+.logo span {color:var(--gold);}
+
+nav {
+  display:flex;
+  gap:28px;
+  font-size:13px;
+  font-weight:600;
+}
+nav a:hover {color:var(--gold);}
+
+.cart-button {
+  border:1px solid var(--brown);
+  border-radius:30px;
+  padding:10px 17px;
+  color:var(--brown);
+  background:transparent;
+  font-weight:700;
+  font-size:13px;
+}
+
+.hero {
+  min-height:570px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:35px;
+  padding:70px 9%;
+  background:radial-gradient(circle at 80% 30%,#ead9c3 0,transparent 34%),var(--cream);
+}
+
+.eyebrow {
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:11px;
+  font-weight:700;
+}
+
+h1,h2,h3 {font-family:"Playfair Display",serif;}
+
+h1 {
+  max-width:600px;
+  margin:18px 0;
+  font-size:clamp(45px,6vw,76px);
+  line-height:1.04;
+}
+h1 em {color:var(--gold);font-style:normal;}
+
+.hero p {
+  max-width:440px;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:15px;
+}
+
+.primary-button {
+  display:inline-block;
+  margin-top:22px;
+  padding:15px 27px;
+  border:0;
+  border-radius:30px;
+  color:white;
+  background:var(--brown);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.5px;
+  transition:.2s;
+}
+.primary-button:hover {
+  background:var(--gold);
+  transform:translateY(-2px);
+}
+
+.hero-image {
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  border-radius:48% 48% 18px 18px;
+  box-shadow:var(--shadow);
+}
+
+section {padding:78px 7%;}
+
+.section-heading {
+  text-align:center;
+  margin-bottom:38px;
+}
+.section-heading h2 {
+  margin:10px 0;
+  font-size:clamp(32px,4vw,45px);
+}
+.section-heading p {
+  color:var(--muted);
+  font-size:14px;
+}
+
+.products {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.product-card {
+  overflow:hidden;
+  background:var(--white);
+  border:1px solid rgba(60,36,27,.07);
+  border-radius:17px;
+  box-shadow:0 8px 25px rgba(60,36,27,.05);
+  transition:.25s;
+}
+.product-card:hover {
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
+}
+.product-card img {
+  display:block;
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+.product-info {padding:18px;}
+.product-info h3 {
+  margin:0 0 7px;
+  font-size:22px;
+}
+.product-info p {
+  min-height:38px;
+  margin:0 0 15px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.6;
+}
+.product-bottom {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.price {font-weight:700;font-size:16px;}
+
+.add-button {
+  padding:10px 14px;
+  border:0;
+  border-radius:25px;
+  color:white;
+  background:var(--brown);
+  font-size:12px;
+  font-weight:700;
+}
+.add-button:hover {background:var(--gold);}
+
+.story {
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  align-items:center;
+  gap:55px;
+  background:var(--cream-dark);
+}
+.story img {
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  border-radius:16px;
+}
+.story h2 {
+  font-size:42px;
+  margin:12px 0;
+}
+.story p {
+  color:var(--muted);
+  line-height:1.9;
+  font-size:14px;
+}
+
+.cart-panel {
+  position:fixed;
+  z-index:30;
+  top:0;
+  right:-420px;
+  width:min(390px,100%);
+  height:100vh;
+  padding:25px;
+  background:var(--white);
+  box-shadow:-10px 0 35px rgba(0,0,0,.14);
+  transition:right .3s ease;
+  display:flex;
+  flex-direction:column;
+}
+.cart-panel.open {right:0;}
+
+.cart-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.cart-header h2 {margin:0;font-size:28px;}
+
+.close-cart {
+  border:0;
+  background:none;
+  font-size:28px;
+  color:var(--brown);
+}
+
+#cartItems {
+  flex:1;
+  overflow-y:auto;
+  padding:20px 0;
+}
+
+.cart-item {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:13px 0;
+  border-bottom:1px solid var(--cream-dark);
+}
+.cart-item small {
+  display:block;
+  margin-top:5px;
+  color:var(--muted);
+}
+
+.quantity-controls {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.quantity-controls button {
+  width:25px;
+  height:25px;
+  border:1px solid var(--cream-dark);
+  border-radius:50%;
+  background:white;
+}
+
+.cart-total {
+  display:flex;
+  justify-content:space-between;
+  padding:17px 0;
+  border-top:1px solid var(--cream-dark);
+  font-weight:700;
+}
+
+.checkout-button {
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:30px;
+  color:white;
+  background:#287b48;
+  font-weight:700;
+}
+.checkout-button:hover {background:#20653b;}
+
+.empty-cart {
+  color:var(--muted);
+  text-align:center;
+  padding:35px 0;
+}
+
+footer {
+  padding:55px 20px 25px;
+  color:var(--cream);
+  background:var(--brown);
+  text-align:center;
+}
+footer .logo {font-size:30px;}
+footer .logo span {color:#d8b77e;}
+footer p {
+  color:#d8c9bc;
+  font-size:13px;
+}
+
+.social-links {
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin:23px 0;
+}
+.social-links a {
+  color:#e9d5b5;
+  font-size:13px;
+  font-weight:700;
+}
+.social-links a:hover {color:white;}
+
+.copyright {
+  margin-top:35px;
+  font-size:11px;
+  color:#bba99a;
+}
+
+@media(max-width:760px) {
+  header {padding:15px 5%;}
+  nav {display:none;}
+  .hero {
+    grid-template-columns:1fr;
+    padding:55px 7%;
+  }
+  .hero-image {height:300px;}
+  section {padding:60px 6%;}
+  .story {
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+  .story img {height:260px;}
+  .story h2 {font-size:34px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  FRESHLY BAKED • PREMIUM COOKIES • MADE WITH LOVE
+</div>
+
+<header>
+  <a class="logo" href="#home">MAG <span>COOKIES</span></a>
+
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#menu">OUR COOKIES</a>
+    <a href="#story">OUR STORY</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+
+  <button class="cart-button" onclick="toggleCart()">
+    CART (<span id="cartCount">0</span>)
+  </button>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div>
+    <div class="eyebrow">A little moment of happiness</div>
+    <h1>Made to be<br><em>loved.</em></h1>
+    <p>
+      Discover the rich, delicious taste of premium cookies.
+      Freshly baked, beautifully crafted, and made to make
+      every moment sweeter.
+    </p>
+    <a class="primary-button" href="#menu">EXPLORE OUR COOKIES</a>
+  </div>
+
+  <img class="hero-image"
+  src="https://images.unsplash.com/photo-1719384980808-0f3b833a2468?auto=format&fit=crop&w=1100&q=85"
+  alt="Freshly baked chocolate chip cookies">
+</section>
+
+<section id="menu">
+  <div class="section-heading">
+    <div class="eyebrow">The MAG collection</div>
+    <h2>Our Signature Cookies</h2>
+    <p>Choose your favorite and let happiness arrive.</p>
+  </div>
+
+  <div class="products">
+
+    <article class="product-card">
+      <img src="https://images.unsplash.com/photo-1673551490160-3f2e712b9373?auto=format&fit=crop&w=700&q=85"
+      alt="Chocolate chips cookie">
+      <div class="product-info">
+        <h3>Chocolate Chips</h3>
+        <p>A classic favorite filled with delicious chocolate chips.</p>
+        <div class="product-bottom">
+          <span class="price">50 EGP</span>
+          <button class="add-button" onclick="addToCart('Chocolate Chips',50)">ADD TO CART</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=85"
+      alt="Double chocolate cookie">
+      <div class="product-info">
+        <h3>Chocolate</h3>
+        <p>Deep chocolate flavor for every chocolate lover.</p>
+        <div class="product-bottom">
+          <span class="price">70 EGP</span>
+          <button class="add-button" onclick="addToCart('Chocolate',70)">ADD TO CART</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <img src="https://eatcremebakery.com/cdn/shop/files/Biscoff-3.jpg?v=1693850915&width=1445"
+      alt="Lotus cookie">
+      <div class="product-info">
+        <h3>Lotus</h3>
+        <p>A smooth, caramelized Lotus-inspired treat.</p>
+        <div class="product-bottom">
+          <span class="price">80 EGP</span>
+          <button class="add-button" onclick="addToCart('Lotus',80)">ADD TO CART</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhw5rQ3ogMpCr_QXNRZUEB1xmVfKeMROynYIo0_af5yA&s=10"
+      alt="Pistachio cookie">
+      <div class="product-info">
+        <h3>Pistachio</h3>
+        <p>A premium nutty flavor with a delicate finish.</p>
+        <div class="product-bottom">
+          <span class="price">80 EGP</span>
+          <button class="add-button" onclick="addToCart('Pistachio',80)">ADD TO CART</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <img src="https://www.thomascookie.com/cdn/shop/files/KinderCookieCup-4.jpg?v=1714222386"
+      alt="Kinder cookie">
+      <div class="product-info">
+        <h3>Kinder</h3>
+        <p>A creamy, sweet treat inspired by Kinder chocolate.</p>
+        <div class="product-bottom">
+          <span class="price">80 EGP</span>
+          <button class="add-button" onclick="addToCart('Kinder',80)">ADD TO CART</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="story" id="story">
+  <img src="https://images.unsplash.com/photo-1657418830273-40c19cfff4d7?auto=format&fit=crop&w=1000&q=85"
+  alt="Cookies prepared for baking">
+
+  <div>
+    <div class="eyebrow">The story behind every bite</div>
+    <h2>Simply made.<br>Beautifully enjoyed.</h2>
+    <p>
+      At MAG COOKIES, we believe that the best moments are
+      made sweeter with a cookie. We bring together delicious
+      flavors, carefully selected ingredients, and a little love
+      in every bite.
+    </p>
+    <a class="primary-button" href="#menu">FIND YOUR FAVORITE</a>
+  </div>
+</section>
+
+</main>
+
+<aside class="cart-panel" id="cartPanel" aria-label="Shopping cart">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button class="close-cart" onclick="toggleCart()" aria-label="Close cart">&times;</button>
+  </div>
+
+  <div id="cartItems">
+    <div class="empty-cart">Your cart is empty.</div>
+  </div>
+
+  <div class="cart-total">
+    <span>Total</span>
+    <span id="cartTotal">0 EGP</span>
+  </div>
+
+  <button class="checkout-button" onclick="checkout()">
+    ORDER VIA WHATSAPP
+  </button>
+</aside>
+
+<footer id="contact">
+  <div class="logo">MAG <span>COOKIES</span></div>
+  <p>Bite Happiness ❤️</p>
+  <p>Premium Cookies Made With Love.</p>
+
+  <div class="social-links">
+    <a href="https://wa.me/201203045017" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="https://www.instagram.com/mag_cookies1/" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </div>
+
+  <p>Contact Us Anytime!</p>
+  <div class="copyright">©️ 2026 MAG COOKIES. All Rights Reserved.</div>
+</footer>
+
+<script>
+const WHATSAPP_NUMBER = "201203045017";
+const cart = Object.create(null);
+
+function addToCart(name, price) {
+  if (!cart[name]) {
+    cart[name] = {
+      price: Number(price),
+      quantity: 0
+    };
+  }
+
+  cart[name].quantity += 1;
+  updateCart();
+
+  document.getElementById("cartPanel").classList.add("open");
+}
+
+function changeQuantity(name, amount) {
+  if (!cart[name]) return;
+
+  cart[name].quantity += amount;
+
+  if (cart[name].quantity <= 0) {
+    delete cart[name];
+  }
+
+  updateCart();
+}
+
+function updateCart() {
+  const itemsContainer = document.getElementById("cartItems");
+  const entries = Object.entries(cart);
+
+  let count = 0;
+  let total = 0;
+
+  if (entries.length === 0) {
+    itemsContainer.innerHTML =
+      '<div class="empty-cart">Your cart is empty.</div>';
+  } else {
+    itemsContainer.innerHTML = entries.map(([name, item]) => {
+      count += item.quantity;
+      total += item.price * item.quantity;
+
+      return `
+        <div class="cart-item">
+          <div>
+            <strong>${name}</strong>
+            <small>${item.price} EGP each</small>
+          </div>
+
+          <div class="quantity-controls">
+            <button type="button" onclick="changeQuantity('${name}',-1)">−</button>
+            <span>${item.quantity}</span>
+            <button type="button" onclick="changeQuantity('${name}',1)">+</button>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  document.getElementById("cartCount").textContent = count;
+  document.getElementById("cartTotal").textContent = total + " EGP";
+}
+
+function toggleCart() {
+  document.getElementById("cartPanel").classList.toggle("open");
+}
+
+function checkout() {
+  const entries = Object.entries(cart);
+
+  if (entries.length === 0) {
+    alert("Your cart is empty. Please add a cookie first.");
+    return;
+  }
+
+  let total = 0;
+
+  const orderLines = entries.map(([name, item]) => {
+    const lineTotal = item.price * item.quantity;
+    total += lineTotal;
+
+    return `- ${name} x ${item.quantity} = ${lineTotal} EGP`;
+  });
+
+  const message = [
+    "Hello MAG COOKIES! I'd like to place an order:",
+    "",
+    ...orderLines,
+    "",
+    `Total: ${total} EGP`,
+    "",
+    "Please confirm my order. Thank you!"
+  ].join("\n");
+
+  const whatsappURL =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+  window.location.href = whatsappURL;
+}
+
+updateCart();
+</script>
+
+</body>
+</html>.
